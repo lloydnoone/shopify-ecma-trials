@@ -1,3 +1,9 @@
+{%- style -%}
+section.comments {
+	background: {{ section.settings.commentsColour }}
+}
+{%- endstyle -%}
+
 {% form 'new_comment', article %}
   {{ form.errors | default_errors }}
 
@@ -33,6 +39,18 @@
 
 {% schema %}
 {
-  "name": "Comment Section"
+  "name": "Comments",
+  "tag": "section",
+  "class": "comments",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "commentsColour",
+      "label": "Colour",
+      "default": "red",
+      "info": "Colour of the comments section"
+    }
+  ]
 }
 {% endschema %}
