@@ -7,7 +7,7 @@ section.comments {
 {% for block in section.blocks %}
   {% case block.type %}
     {%- when 'form' -%}
-			<div {{ block.shopify_attributes }} background="{{ block.settings.colour }}">
+			<div {{ block.shopify_attributes }} style="background:{{ block.settings.colour }}"">
 				{% form 'new_comment', article %}
 					{{ form.errors | default_errors }}
 					
@@ -32,7 +32,7 @@ section.comments {
 				{% endform %}
 			</div>
 		{%- when 'previousComments' -%}
-			<div {{ block.shopify_attributes }} background="{{ block.settings.colour }}">
+			<div {{ block.shopify_attributes }} style="background:{{ block.settings.colour }}">
 				{% paginate article.comments by 20 %}
 					<p>Comments: </p>
 					{% for comment in article.comments %}
