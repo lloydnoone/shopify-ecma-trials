@@ -23,7 +23,9 @@
           }
         },
         "content": {
-          "type": "content"
+          "type": "content",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -31,10 +33,15 @@
         "title",
         "share",
         "content"
-      ]
+      ],
+      "settings": {
+      }
     },
     "comments": {
-      "type": "article-comments"
+      "type": "article-comments",
+      "settings": {
+        "commentsColour": "orange"
+      }
     }
   },
   "order": [
