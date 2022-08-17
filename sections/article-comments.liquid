@@ -7,7 +7,7 @@ section.comments {
 {% for block in section.blocks %}
   {% case block.type %}
     {%- when 'form' -%}
-			<div {{ block.shopify_attributes }}>
+			<div {{ block.shopify_attributes }} {{ block.settings.color }}>
 				{% form 'new_comment', article %}
 					{{ form.errors | default_errors }}
 					
@@ -32,7 +32,7 @@ section.comments {
 				{% endform %}
 			</div>
 		{%- when 'previousComments' -%}
-			<div {{ block.shopify_attributes }}>
+			<div {{ block.shopify_attributes }} {{ block.settings.color }}>
 				{% paginate article.comments by 20 %}
 					<p>Comments: </p>
 					{% for comment in article.comments %}
@@ -53,6 +53,7 @@ section.comments {
   "tag": "section",
   "class": "comments",
   "limit": 1,
+	"max_blocks": 2,
   "settings": [
     {
       "type": "text",
@@ -84,6 +85,20 @@ section.comments {
           "id": "colour",
           "label": "Colour",
           "default": "blue"
+        }
+      ]
+    }
+  ],
+	"presets": [
+    {
+      "name": "Comments",
+     
+      "blocks": [
+        {
+          "type": "form"
+        },
+        {
+          "type": "previousComments"
         }
       ]
     }
