@@ -3,6 +3,10 @@
     margin-top: 1rem;
   }
 
+  .template-404 .test {
+    background: red;
+  }
+
   @media screen and (min-width: 750px) {
     .template-404 .title + * {
       margin-top: 2rem;
@@ -11,6 +15,7 @@
 </style>
 
 <div class="template-404 page-width page-margin center">
+  <p class="template-{{ template.name }} test">test sections</p>
   <p>
     {{ 'templates.404.subtext' | t }}
   </p>

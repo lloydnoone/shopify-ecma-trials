@@ -32,9 +32,13 @@
         "share",
         "content"
       ]
+    },
+    "comments": {
+      "type": "article-comments"
     }
   },
   "order": [
-    "main"
+    "main",
+    "comments"
   ]
 }
