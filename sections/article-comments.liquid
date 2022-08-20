@@ -43,7 +43,8 @@ section.comments {
   			{{ paginate | default_pagination }}
 				{% endpaginate %}
 			</div>
-
+		{% when '@app' %}
+			{% render block %}
   {% endcase %}
 {% endfor %}
 
@@ -87,17 +88,26 @@ section.comments {
           "default": "blue"
         }
       ]
-    }
+    },
+		{
+			"type": "@app"
+		}
   ],
-	"default": {
-    "blocks": [
-      {
-        "type": "form"
-      },
-      {
-        "type": "previousComments"
-      }
-    ]
-  }
+  "presets": [
+    {
+      "name": "Comments",
+      "blocks": [
+        {
+          "type": "form"
+        },
+        {
+          "type": "previousComments"
+        },
+				{
+					"type": "@app"
+				}
+      ]
+    }
+  ]
 }
 {% endschema %}
